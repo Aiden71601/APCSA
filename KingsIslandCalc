@@ -1,0 +1,37 @@
+import cs1.Keyboard;
+import java.util.Scanner;
+
+//You are traveling to King's Island for the day.
+//Everyone in the group has agreed to split the cost evenly.
+//Write a program to determine the total cost of the trip and the cost per person.
+//Assume that each ticket is $32.99
+
+public class KingsIsland
+{
+	//String s = scan.next();
+	//int i = scan.nextInt();
+	public static void main(String[] args)
+	{
+		Scanner scan = new Scanner(System.in);
+		//Declare variables for the number of people, parking cost, food cost, total cost, cost per person
+		int people;
+		double parking, food, cost, cpp;
+		//Prompt for and read in the number of people in the group
+		System.out.println("Enter the number of people: ");
+		people = scan.nextInt();
+		//Prompt for and read in the cost of parking
+		System.out.println("Enter the cost of parking: ");
+		parking = scan.nextDouble();
+		//Prompt for and read in the amount spent on food
+		System.out.println("Enter the cost of parking: ");
+		food = scan.nextDouble();
+		//Calculate the total expenses
+		cost = ((people * 32.99) + parking + food);
+		//Calculate the average per person
+		cpp = (cost / people);
+		//Display results
+		System.out.println("King's Island Report");
+		System.out.println("Total Cost: " + cost);
+		System.out.println("Cost per person: " + cpp);
+	}
+}

@@ -44,8 +44,9 @@ public class ModulusClock {
 			addedMinutes = scan.nextInt();
 		}
 		//calculate new time
-		newHour = (givenHour + addedHour) + ((givenMinutes + addedMinutes)/60);
+		newHour = ((givenHour + addedHour)%12) + ((givenMinutes + addedMinutes)/60);
 		newMinutes = ((givenMinutes + addedMinutes)%60);
+
 		// Convert zero o'clock to twelve o'clock
 		if (newHour == 0){
 		  newHour = 12;

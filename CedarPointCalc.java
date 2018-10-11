@@ -24,15 +24,18 @@ public class CedarPointCalc {
 		double charterBusCost;
 		int foodAllowanceCost;
 		double totalCost;
+		int freeTickets;
 		//ask number of students
 		System.out.println("How many students are going?");
 		numStudents = scan.nextInt();
 		//Calculates and displays number of chaperones based on number of students.
 		numChaperones = (int) (numStudents / chaperonePerStudents);
 		System.out.printf("\nNumber of chaperones:   %10d", numChaperones);
+		//Calculates free tickets
+		freeTickets = ((numStudents + numChaperones) % 15);
 		//Calculates and displays seasonal admission costs
-		fallAdmissionCost = ((numStudents * fallStudentCost) + (numChaperones * fallChaperoneCost));
-		springAdmissionCost = ((numStudents * springStudentCost) + (numChaperones * springChaperoneCost));
+		fallAdmissionCost = (((numStudents * fallStudentCost) + (numChaperones * fallChaperoneCost)) - (freeTickets * fallStudentCost));
+		springAdmissionCost = (((numStudents * springStudentCost) + (numChaperones * springChaperoneCost)) - (freeTickets * springStudentCost));
 		System.out.printf("\nFall Admission Cost:    %10.2f", fallAdmissionCost);
 		System.out.printf("\nSpring Admission Cost:  %10.2f", springAdmissionCost);
 		//Calculates and displays both transportation cost
@@ -41,7 +44,7 @@ public class CedarPointCalc {
 		System.out.printf("\nSchool Bus Cost:        %10.2f", schoolBusCost);
 		System.out.printf("\nCharter Bus Cost:       %10.2f", charterBusCost);
 		//Calculates and displays food allowance cost
-		foodAllowanceCost = (int)(numStudents * foodAllowance);
+		foodAllowanceCost = (int)((numStudents + numChaperones) * foodAllowance);
 		System.out.printf("\nFood Allowance Cost:    %10d", foodAllowanceCost);
 		//Calculates and displays the total cost
 		totalCost = (fallAdmissionCost + schoolBusCost + foodAllowanceCost);

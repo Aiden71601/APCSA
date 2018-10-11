@@ -19,16 +19,8 @@ public class WeirdCalc {
 		System.out.printf("\nAverage:    %13.2f", average);
 		System.out.printf("\nDistance:   %10d", (Math.abs(num1 - num2)));
 		//calculate which number is bigger for easier coding
-		if (num1 > num2){
-			maximum = num1;
-			minimum = num2;
-		} else if (num1 < num2){
-			maximum = num2;
-			minimum = num1;
-		} else{
-			maximum = num1;
-			minimum = num2;
-		}
+		maximum = Math.max(num1, num2);
+		minimum = Math.min(num1, num2);
 		//finish printing out values
 		System.out.printf("\nMaximum:    %10d", maximum);
 		System.out.printf("\nMinimum:    %10d", minimum);
